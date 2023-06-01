@@ -96,11 +96,9 @@ export default function Register({navigation}) {
   return (
     <View>
       <ImageBackground
-        source={{
-          uri: 'https://cdn.pixabay.com/photo/2022/06/29/19/07/colored-7292420__340.jpg',
-        }}
+        source={{uri:'https://cutewallpaper.org/28/dandelion-phone-wallpaper-background/2081219447.jpg'}}
         style={{height: '100%'}}
-        blurRadius={80}>
+        blurRadius={10}>
         <View style={styles.InputContainer}>
           <TextInput
             placeholder={error ? 'Enter Valid Name' : "First Name"}
@@ -139,10 +137,9 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   InputBox: {
-    marginTop: 20,
-    borderColor: 'white',
-    borderWidth: 2,
-    borderRadius: 5,
+    marginTop:20,
+    borderBottomColor:'white',
+    borderBottomWidth:2,
   },
   button: {
     textAlignVertical: 'center',
