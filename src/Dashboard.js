@@ -11,11 +11,14 @@ import {
   Alert,
   ImageBackground,
   StatusBar,
+  Dimensions
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {openDatabase} from 'react-native-sqlite-storage';
 
 export default function Dashboard() {
+  const width = Dimensions.get('window').width;
+  const height = Dimensions.get('window').height;
   const [UserData, setUserData] = useState();
   const [loading, setLoading] = useState(true);
   // const[updatedFirstName, setUpdtedFirstName] = useState();
@@ -118,7 +121,7 @@ export default function Dashboard() {
   ) : (
     <View>
       <StatusBar backgroundColor={'#0f85e7'} />
-      <ImageBackground source={{uri:'https://cutewallpaper.org/28/dandelion-phone-wallpaper-background/2081219447.jpg'}} style={{height:'100%',}} blurRadius={10}>
+      <ImageBackground source={{uri:'https://cutewallpaper.org/28/dandelion-phone-wallpaper-background/2081219447.jpg'}} style={{height:height,width:width, }} blurRadius={10}>
       <ScrollView>
         
         <View>
@@ -157,7 +160,8 @@ export default function Dashboard() {
         <Modal
           transparent={true}
           animationType="fade"
-          presentationStyle="overFullScreen">
+          presentationStyle="overFullScreen"
+          style={{position:'absolute', width:width, height:height, top:0, left:0}}>
           <View
             style={styles.modalView}>
             <TouchableOpacity
@@ -237,11 +241,12 @@ const styles = StyleSheet.create({
   modalView:{
     margin: 40,
     marginTop: 100,
-    height: '70%',
-    width: '80%',
+    // height: '70%',
+    // width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'skyblue',
+    position:'absolute', width:Dimensions.get('window').width- 80, height:Dimensions.get('window').height - 300, 
   },
   button2:{
     

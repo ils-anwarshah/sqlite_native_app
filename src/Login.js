@@ -1,10 +1,12 @@
-import { View, Text, ImageBackground, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, ImageBackground, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Dimensions } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import {openDatabase} from 'react-native-sqlite-storage'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export default function Login({navigation}) {
 
+  const width = Dimensions.get('window').width;
+  const height = Dimensions.get('window').height;
   const [email, setEmail]  = useState('');
   const [password, setPassword ] = useState('');
   const[error, setError] = useState('')
@@ -37,7 +39,13 @@ export default function Login({navigation}) {
   }
 
   return (
-    <ImageBackground  source={{uri:'https://cutewallpaper.org/28/dandelion-phone-wallpaper-background/2081219447.jpg'}} style={{height:'100%',}} blurRadius={10}>
+    
+    <ImageBackground  source={{uri:'https://cutewallpaper.org/28/dandelion-phone-wallpaper-background/2081219447.jpg'}} style={{height:'100%', position: 'absolute',
+    left: 0,
+    top: 0,
+    width: width,
+    height: height,}} 
+    blurRadius={10}>
     <View>
       
       <View style={styles.InputContainer}>

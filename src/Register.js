@@ -5,12 +5,15 @@ import {
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
+  Dimensions
 } from 'react-native';
 import React, {useState , useEffect} from 'react';
 
 import {openDatabase} from 'react-native-sqlite-storage'
 
 export default function Register({navigation}) {
+  const width = Dimensions.get('window').width;
+  const height = Dimensions.get('window').height;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -97,7 +100,7 @@ export default function Register({navigation}) {
     <View>
       <ImageBackground
         source={{uri:'https://cutewallpaper.org/28/dandelion-phone-wallpaper-background/2081219447.jpg'}}
-        style={{height: '100%'}}
+        style={{width:width, height:height, position:'absolute', top:0, left:0}}
         blurRadius={10}>
         <View style={styles.InputContainer}>
           <TextInput
